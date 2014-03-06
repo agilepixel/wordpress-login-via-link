@@ -28,19 +28,19 @@ function loginlink_init()
 {
     if ($login = get_query_var('loginlink')) {
 
-        $userarray = get_users();
-
         $iv_size = mcrypt_get_iv_size('cast-128', MCRYPT_MODE_ECB);
 
         $key = get_option('loginlink_secret_key');
 
-        $permalink = get_option('permalink_structure');
+        //$permalink = get_option('permalink_structure');
 
         $login = rawurldecode($login);
 
         $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
         $decrypt = mcrypt_decrypt('cast-128', $key, base64_decode($login) , MCRYPT_MODE_ECB, $iv);
 
+        $creds = array();
+        
         if (preg_match('/^([A-z _\-@\.]+)\[(.*)$/', $decrypt,$matches)) {
             $creds['user_login'] = $matches[1];
             $creds['user_password'] = $matches[2];
@@ -108,7 +108,7 @@ function loginlink_add_user_column($columns)
 
 function loginlink_user_column_content($value, $column_name, $user_id)
 {
-    $permalink = get_option('permalink_structure');
+    //$permalink = get_option('permalink_structure');
     $user = get_userdata( $user_id );
     if ('loginlink' == $column_name) {
 
