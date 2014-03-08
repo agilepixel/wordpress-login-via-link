@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Login via Link
- Plugin URI: http://agilepixel.io/
+ Plugin URI: https://github.com/agilepixel/wordpress-login-via-link
  Description: Enables user login via url link
  Version: 0.1
  Author: Agile Pixel
