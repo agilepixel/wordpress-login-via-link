@@ -1,5 +1,5 @@
 === Login Link ===
-Contributors: code418
+Contributors: agilepixel
 Tags: login
 Requires at least: 3.5
 Tested up to: 3.5
